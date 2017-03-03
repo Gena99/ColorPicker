@@ -1,40 +1,60 @@
 $(document).ready(function(){
 	//console.log("hello");
 
-var R, V, B;
-var rouge, vert, bleu;
+// initialisation des variables
+// récupérer les valeurs définies dans le dom pour les input avec les id R, V et B
+var R = $('#R').val();
+var V = $('#V').val();
+var B = $('#B').val();
+// mettre à jour la couleur du fond d'écran
+changerCouleurFondEcran();
+
+// positionner la valeur par défaut du gradient aux mêmes valeurs que le fond d'écran
+var rouge = R, vert = V, bleu = V;
+
+// déclarer les function pour changer les couleurs
+function changerCouleurFondEcran(){
+	//$("body").css({"background-color":'rgb(' + R + ',' + V + ',' + B + ')'});
+	$("body").css({'background': "linear-gradient(to right, rgb(" + R + "," + V + "," + B + "),rgb(" + R + "," + V + "," + B + ")"}); 
+}
+function changerDegrade(){
+	$("body").css({'background': "linear-gradient(to right, rgb(" + rouge + "," + vert + "," + bleu + "),rgb(" + R + "," + V + "," + B + ")"}); 
+}
 
 
-$("#R").on("change mousemove", function(){
+
+$("#R").on("change", function(){
+	console.log($(this).attr('id'))
 	R=$(this).val();
-	console.log(R);
-	$("body").css({"background-color":'rgb(' + R + ',' + V + ',' + B + ')'});
+	console.log("R" + R);
+	changerCouleurFondEcran();
 	});
-$("#V").on("change mousemove", function(){
+$("#V").on("change", function(){
 	V=$(this).val();
 	console.log(V);
-	$("body").css({"background-color":'rgb(' + R + ',' + V + ',' + B + ')'});
+	changerCouleurFondEcran();
 	});
-$("#B").on("change mousemove", function(){
+$("#B").on("change", function(){
 	B=$(this).val();
 	console.log(B);
-	$("body").css({"background-color":'rgb(' + R + ',' + V + ',' + B + ')'});
+	changerCouleurFondEcran();
 	});
 
-$('#gradient1').on("change mousemove",function(){
+$('#gradient1').on("change",function(){
 		rouge = $(this).val();
 		console.log(rouge)
-		$("body").css({'background': "linear-gradient(to right, rgb(" + rouge + "," + vert + "," + bleu + "),rgb(" + R + "," + V + "," + B + ")"}); 
+		changerDegrade();
 	});
-	$('#gradient2').on("change mousemove",function(){
+$('#gradient2').on("change",function(){
 		vert = $(this).val();
 		console.log(vert)
-		$("body").css({'background': "linear-gradient(to right, rgb(" + rouge + "," + vert + "," + bleu + "),rgb(" + R + "," + V + "," + B + ")"}); 
+		changerDegrade();
 	});
-	$('#gradient3').on("change mousemove",function(){
-		bleu = $(this).val();
-		console.log(bleu)
-		$("body").css({'background': "linear-gradient(to right, rgb(" + rouge + "," + vert + "," + bleu + "),rgb(" + R + "," + V + "," + B + ")"}); 
+$('#gradient3').on("change",function(){
+	bleu = $(this).val();
+	console.log(bleu)
+	changerDegrade();
 	});
+	
 });
 

@@ -6,4 +6,18 @@ $couleurFond: rgb(134,134,177);
 body {
   font: 100% $font-stack;
   background-color: $couleurFond;
+  //background: linear-gradient(to right, rgb(100,200,130),rgb(145,145,145));
+}
+h4 span{
+	display: inline-block;
+	background-color: white;
+	margin-left: 20px;
+	padding: 4px;
+	width: 30px;
+	height: 16px;
+
+}
+.colorPicker{
+	display: flex;
+	justify-content: space-around;
 }
