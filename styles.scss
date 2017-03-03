@@ -1,0 +1,9 @@
+
+$font-stack:    Helvetica, sans-serif;
+$couleurFond: rgb(134,134,177);
+// ma charte graphique
+
+body {
+  font: 100% $font-stack;
+  background-color: $couleurFond;
+}
